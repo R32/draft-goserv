@@ -1,0 +1,5 @@
+-cp js
+-dce full
+-D analyzer-optimize
+-main Main
+-js www/assets/js/main.js
