@@ -1,2 +1,3 @@
 *.hss linguist-language=CSS
 www/libs/* linguist-vendored
+polyfill/* linguist-vendored
