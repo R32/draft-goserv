@@ -1,5 +1,7 @@
--cp js
+-cp hx
 -dce full
 -D analyzer-optimize
+-D old-error-format
+-lib no-vdom
 -main Main
 -js www/assets/js/main.js

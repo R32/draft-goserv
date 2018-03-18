@@ -1,0 +1,176 @@
+/* color palette */
+var primary   = #0366d6;
+var sedondary = #607d8b;
+var success   = #60a917;
+var alert     = #CE352C;
+var warning   = #ff9447;
+var yellow    = #ffe484;
+var info      = #1ba1e2;
+var dark      = #505050;
+var light     = #f8f8f8;
+
+var black     = #1b1f23;
+var white     = #ffffff;
+
+/* */
+var font16    = 16px;
+var font08    = 0.5 * $font16;
+var font-title = "微软雅黑";
+
+/* layout */
+var padding-top-bottom = $font08;
+
+var clearfix = {
+  &:before {
+    display: table;
+    content: "";
+  }
+  &:after {
+    display: table;
+    clear: both;
+    content: "";
+  }
+}
+
+/* for debug */
+var layout-bd = {
+  border: 1px solid #ccc;
+}
+
+/* rest */
+a {
+  color: $white;
+  text-decoration: none;
+  outline: 0;
+  background-color: transparent;
+}
+
+a[href] {
+  &:hover,
+  &:active {
+    text-decoration: underline;
+    outline-width: 0;
+  }
+}
+
+
+/* page */
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-size: $font16;
+}
+
+#header {
+  position: relative;
+  height: $font16 * 3;
+  background-color: transparent;
+  line-height: $font16 * 3;
+  z-index: 10;
+  .brand {
+    margin-left: 2 + $font08;
+    font-family: $font-title;
+  }
+
+  .menu-btn {
+    height: $font16 * 2;
+    width: $font16 * 2 + 2;
+    float: left;
+    padding: 0;
+    margin: $font08 0 0 $font08;
+    background-color: lighten($dark, 5%);
+    span{
+      display: block;
+      width: 20px;
+      height: 2px;
+      background-color: $white;
+      margin: 4px auto;
+      pointer-events: none;
+    }
+  }
+}
+
+#banner {
+  min-height: 260px;
+  margin: 0-$font16 * 3 0 0 0;
+  background-color: $dark; /* use rgba() here will cause IE8 postion issue*/
+}
+
+#mainContainer {
+  $layout-bd;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#menu {
+  var p-width = $font16 * 15;
+  position: absolute;
+  z-index: 11;
+  top: 0;
+  left: 0 - $p-width;
+  transition: left 0.3s, visibility 0.3s; /* IE10+ */
+  bottom: 0;
+  width: $p-width;
+  background-color: rgba($dark, 0.9);
+  display: block;
+  visibility: hidden;
+
+  &.popup {
+    visibility: visible;
+    left: 0;
+  }
+
+  .header {
+  }
+
+  .content {
+  }
+}
+
+#hideAll {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  display: none !important;
+  overflow: hidden;
+}
+
+button, input[type=button], input[type=sumbit], .btn {
+  margin: 0;
+  border: 0;
+  color: #FFFFFF;
+  padding: $padding-top-bottom 2 * $padding-top-bottom;
+  font-family: $font-title;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+div.container {
+  padding-right: 4px;
+  padding-left:  4px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* media query */
+@media (min-width: 992px) {
+  div.container {
+    width: 970px;
+    padding: 0;
+  }
+}
+
+/* utils */
+.bg-primary   { background-color: $primary; }
+.bg-sedondary { background-color: $sedondary; }
+.bg-success   { background-color: $success; }
+.bg-alert     { background-color: $alert; }
+.bg-warning   { background-color: $warning; }
+.bg-yellow    { background-color: $yellow; }
+.bg-info      { background-color: $info; }
+.bg-dark      { background-color: $dark; }

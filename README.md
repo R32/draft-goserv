@@ -19,6 +19,8 @@ draft-goserv
 
 ## 前端
 
+单页？
+
 * 移动客户端优先, 因此暂时忽略低于 IE11 浏览器的支持, 由于是静态网页因此将使用 `meta` 标签来跳转
 
   ```html
@@ -26,3 +28,10 @@ draft-goserv
     <meta http-equiv="refresh" content="0; url=http://example.com/" />
   <![endif]-->
   ```
+
+* polyfill for IE8:
+
+  - [x] event: only `preventDefault, stopPropagation`
+  - [x] classList.js
+  - [ ] es6-promise.auto.js: 出错了在 IE8 中
+  - [ ] fetch.js

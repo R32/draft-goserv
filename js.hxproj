@@ -15,11 +15,11 @@
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
-    <class path="js" />
+    <class path="hx" />
   </classpaths>
   <!-- Build options -->
   <build>
-    <option directives="analyzer-optimize" />
+    <option directives="analyzer-optimize&#xA;old-error-format" />
     <option flashStrict="False" />
     <option noInlineOnDebug="False" />
     <option mainClass="Main" />
@@ -28,7 +28,7 @@
   </build>
   <!-- haxelib libraries -->
   <haxelib>
-    <!-- example: <library name="..." /> -->
+    <library name="no-vdom" />
   </haxelib>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>
