@@ -19,7 +19,7 @@
   </classpaths>
   <!-- Build options -->
   <build>
-    <option directives="analyzer-optimize&#xA;old-error-format" />
+    <option directives="es_js=3&#xA;analyzer-optimize&#xA;old-error-format" />
     <option flashStrict="False" />
     <option noInlineOnDebug="False" />
     <option mainClass="Main" />

@@ -40,7 +40,7 @@ $(CSSOUT): hss/style.hss
 	hss -output $(dir $@) $^
 
 # use google closure
-$(IE_OUT): $(addprefix polyfill/, event.js classList.js)
+$(IE_OUT): $(addprefix polyfill/, textContext.js event.js classList.js)
 	closure --js_output_file $@ --compilation_level WHITESPACE_ONLY --js $^
 
 

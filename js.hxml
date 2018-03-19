@@ -1,5 +1,6 @@
 -cp hx
 -dce full
+-D es_js=3
 -D analyzer-optimize
 -D old-error-format
 -lib no-vdom

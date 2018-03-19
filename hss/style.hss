@@ -18,7 +18,7 @@ var font08    = 0.5 * $font16;
 var font-title = "微软雅黑";
 
 /* layout */
-var padding-top-bottom = $font08;
+var pd-08 = $font08;
 
 var clearfix = {
   &:before {
@@ -96,7 +96,7 @@ body {
 #banner {
   min-height: 260px;
   margin: 0-$font16 * 3 0 0 0;
-  background-color: $dark; /* use rgba() here will cause IE8 postion issue*/
+  background-color: $dark; /* use rgba() will cause IE8 postion issue */
 }
 
 #mainContainer {
@@ -144,7 +144,7 @@ button, input[type=button], input[type=sumbit], .btn {
   margin: 0;
   border: 0;
   color: #FFFFFF;
-  padding: $padding-top-bottom 2 * $padding-top-bottom;
+  padding: $pd-08 2 * $pd-08;
   font-family: $font-title;
   font-weight: 600;
   cursor: pointer;
