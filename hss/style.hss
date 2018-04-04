@@ -15,7 +15,8 @@ var white     = #ffffff;
 /* */
 var font16    = 16px;
 var font08    = 0.5 * $font16;
-var font-title = "微软雅黑";
+var font-title = "微软雅黑", monospace;
+var font-code = Consolas, "Liberation Mono", Menlo, Courier, monospace;
 
 /* layout */
 var pd-08 = $font08;
@@ -39,7 +40,7 @@ var layout-bd = {
 
 /* rest */
 a {
-  color: $white;
+  color: inherit;
   text-decoration: none;
   outline: 0;
   background-color: transparent;
@@ -64,14 +65,72 @@ body {
   font-size: $font16;
 }
 
-#header {
+#msgWarning {
+  var color = #735c0f;
+  var height = $font16 * 2.5;
+  position: fixed;
+  z-index: 1;
+  top: 0 - $height;
+  left: 0;
+  right: 0;
+  height: $height;
+  line-height: $height;
+  background-color: $yellow;
+  color: $color;
+  text-align: center;
+  font-family: $font-title;
+  transition: top 0.2s, visibility 0.2s;
+  visibility: hidden;
+
+  .close {
+    float: right;
+    display: inline-block;
+    padding: 0 20px;
+    text-align: center;
+    cursor: pointer;
+    background-color: darken($yellow, 5%);
+    border: 0;
+    transition: color 0.3s, background-color 0.3s;
+    &:hover {
+      background-color: darken($yellow, 10%);
+      color: darken($color, 5%);
+    }
+  }
+&.popup {
+  top: 0;
+  visibility: visible;
+}
+/* .notice.error */
+&.error {
+  background-color: $alert;
+  color: $light;
+  .close {
+    color: darken($light, 10%);
+    background-color: darken($alert, 3%);
+    &:hover {
+      background-color: darken($alert, 6%);
+      color: $white;
+    }
+  }
+}
+
+}
+
+#page-wrapper {
   position: relative;
+}
+
+#header {
+  position: absolute;
+  top: 0;
+  text-align: left;
   height: $font16 * 3;
   background-color: transparent;
   line-height: $font16 * 3;
-  z-index: 10;
+
   .brand {
     margin-left: 2 + $font08;
+    color: $white;
     font-family: $font-title;
   }
 
@@ -94,10 +153,74 @@ body {
 }
 
 #banner {
-  min-height: 260px;
-  margin: 0-$font16 * 3 0 0 0;
-  background-color: $dark; /* use rgba() will cause IE8 postion issue */
+  min-height: 280px;
+  margin-top: 0;
+  padding-top: $font16 * 3;
+  background-color: $dark;
+  text-align: center;
+  font-weight: normal;
+  font-family: $font-code;
 }
+
+@keyframes breathing {
+  from {
+    background-color: $white;
+    box-shadow: 0 0 0 0 $white;
+  }
+
+  to {
+    background-color: lighten($info, 10%);
+    box-shadow: 0 0 $font08 2px $info;
+  }
+}
+
+#blockinfo {
+  margin-top: 118px;
+  margin-left: auto;
+  margin-right: auto;
+
+&.active h2{
+  &:after {
+    animation-play-state: running;
+  }
+}
+
+  h2 {
+    position: relative;
+    display: inline-block;
+    margin: 2px auto;
+    margin-bottom: $font16;
+    color: $white;
+    border-top: 2px solid $white;
+    border-bottom: 2px solid $white;
+    &:after {
+      position: absolute;
+      display: inline-block;
+      width: $font08;
+      height: $font08;
+      bottom: -3px;
+      right: -13px;
+      background-color: $white;
+      content: "";
+      border-radius: $font08;
+      animation: 4s ease-out 0.5s infinite alternate forwards paused breathing;
+    }
+  }
+
+  p {
+    color: #AAA;
+    font-size: 0;
+    span {
+      font-size: 14px;
+      &.hash-2 {
+        color: $white;
+        font-size: $font16;
+        border-bottom: 2px solid $white;
+      }
+    }
+  }
+}
+
 
 #mainContainer {
   $layout-bd;
@@ -108,7 +231,7 @@ body {
 #menu {
   var p-width = $font16 * 15;
   position: absolute;
-  z-index: 11;
+  z-index: 1;
   top: 0;
   left: 0 - $p-width;
   transition: left 0.3s, visibility 0.3s; /* IE10+ */
@@ -117,6 +240,9 @@ body {
   background-color: rgba($dark, 0.9);
   display: block;
   visibility: hidden;
+  color: $white;
+  font-family: $font-title;
+  font-size: 16px;
 
   &.popup {
     visibility: visible;
@@ -124,13 +250,22 @@ body {
   }
 
   .header {
+    height: $font16 * 3;
+    background-color: $sedondary;
   }
 
   .content {
+    text-align: right;
+    a {
+      $layout-bd;
+      display: block;
+      cursor: pointer;
+      padding: 4px 8px;
+    }
   }
 }
 
-#hideAll {
+#hidden {
   position: absolute;
   left: 0;
   top: 0;

@@ -19,19 +19,16 @@ draft-goserv
 
 ## 前端
 
-单页？
-
-* 移动客户端优先, 因此暂时忽略低于 IE11 浏览器的支持, 由于是静态网页因此将使用 `meta` 标签来跳转
-
-  ```html
-  <!--[if lt IE 11]>
-    <meta http-equiv="refresh" content="0; url=http://example.com/" />
-  <![endif]-->
-  ```
+* 单页？
 
 * polyfill for IE8:
 
   - [x] event: only `preventDefault, stopPropagation`
   - [x] classList.js
-  - [ ] es6-promise.auto.js: 出错了在 IE8 中
+  - [ ] es6-promise.auto.js
   - [ ] fetch.js
+
+* 图标工具, 及库
+
+  - 如果从字体里选图标的话，还是使用 `BMFont` 可以直观地选择想要的图标, 只是感觉不怎清晰, 因为很多都是非点阵的。
+ 
